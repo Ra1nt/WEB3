@@ -1,0 +1,52 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "Telegram Dashboard",
+    "timezone": "browser",
+    "schemaVersion": 30,
+    "version": 1,
+    "panels": [
+      {
+        "type": "graph",
+        "title": "每日消息量",
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
+        "targets": [
+          {
+            "format": "time_series",
+            "datasource": "PostgreSQL",
+            "rawSql": "SELECT date AS \"time\", total_messages AS value FROM daily_stats ORDER BY date ASC;",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "活跃用户数",
+        "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
+        "targets": [
+          {
+            "format": "time_series",
+            "datasource": "PostgreSQL",
+            "rawSql": "SELECT date AS \"time\", active_users AS value FROM daily_stats ORDER BY date ASC;",
+            "refId": "B"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "新增成员数",
+        "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
+        "targets": [
+          {
+            "format": "time_series",
+            "datasource": "PostgreSQL",
+            "rawSql": "SELECT date AS \"time\", new_members AS value FROM daily_stats ORDER BY date ASC;",
+            "refId": "C"
+          }
+        ]
+      }
+    ]
+  },
+  "overwrite": true
+}

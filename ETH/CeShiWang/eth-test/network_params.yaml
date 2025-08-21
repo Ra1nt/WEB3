@@ -1,0 +1,15 @@
+participants:
+  # 定义参与节点
+  - el_type: geth          # 执行层（Execution Layer）客户端类型，这里是 geth
+    cl_type: lighthouse    # 共识层（Consensus Layer）客户端类型，这里是 lighthouse
+    count: 1               # 节点数量，这里是 1 个节点
+
+network_params:
+  # 网络参数设置
+  preset: minimal          # 使用最小化（minimal）预设配置，适合本地测试或开发
+
+additional_services:
+  # 额外运行的服务
+  - tx_fuzz                # 启用交易模糊测试工具（tx_fuzz），用来随机生成并发送交易，测试网络稳定性
+  - prometheus
+  - grafana

@@ -1,0 +1,50 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {"internalType": "address","name":"nft","type":"address"},
+        {"internalType": "uint256","name":"tokenId","type":"uint256"},
+        {"internalType": "uint256","name":"price","type":"uint256"}
+      ],
+      "name": "createListing",
+      "outputs": [{"internalType": "uint256","name":"","type":"uint256"}],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [{"internalType": "uint256","name":"listingId","type":"uint256"}],
+      "name": "buy",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [{"internalType": "uint256","name":"listingId","type":"uint256"}],
+      "name": "cancel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getActiveListings",
+      "outputs": [
+        {"internalType": "uint256[]","name":"ids","type":"uint256[]"},
+        {
+          "components": [
+            {"internalType":"address","name":"seller","type":"address"},
+            {"internalType":"address","name":"nft","type":"address"},
+            {"internalType":"uint256","name":"tokenId","type":"uint256"},
+            {"internalType":"uint256","name":"price","type":"uint256"},
+            {"internalType":"bool","name":"active","type":"bool"}
+          ],
+          "internalType": "struct Marketplace.Listing[]",
+          "name": "items",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
